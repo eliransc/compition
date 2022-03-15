@@ -7,17 +7,13 @@ import numpy as np
 
 
 curr_num = 5
-<<<<<<< HEAD
+
 a1 = 1
 a2 = 0.25
 a3 = 0.75
 a4 = 0.75
 a5 = 5
 
-=======
-
-a=2
->>>>>>> origin/main
 
 class MyPlanner:
 
@@ -104,7 +100,7 @@ class MyPlanner:
         assignments = []
         # assign the first unassigned task to the first available resource, the second task to the second resource, etc.
 
-<<<<<<< HEAD
+
         unassigned_tasks_ = [task.task_type for task in unassigned_tasks]
 
         dict_ranking_tasks = {}
@@ -174,63 +170,63 @@ class MyPlanner:
 
 
         print('****************End assignment*************************')
-=======
-        # unassigned_tasks_ = [task.task_type for task in unassigned_tasks]
-        #
-        # dict_ranking_tasks = {}
-        # for resource in available_resources:
-        #     dict_ranking_tasks[resource] = self.give_resource_ranking(df_mean_var, resource, set(unassigned_tasks_))
-        #
-        # dict_ranking_resource = {}
-        #
-        # for task in set(unassigned_tasks_):
-        #     dict_ranking_resource[task] = self.give_task_ranking(df_mean_var, available_resources, task)
-        #
-        # # print(dict_ranking_resource)
-        # print('****************Start assignment*************************')
-        # for task in set(unassigned_tasks_):
-        #     for resource in available_resources:
-        #         if resource in resource_pool[task]:
-        #
-        #             mean_val = -1
-        #             var_val = -1
-        #             if df_mean_var.shape[0] > 0:
-        #                 if 'mean_' + task in df_mean_var.columns:
-        #                     if df_mean_var.loc[df_mean_var['resource'] == resource, 'mean_' + task].shape[
-        #                         0] > 0:
-        #                         if df_mean_var.loc[
-        #                             df_mean_var['resource'] == resource, 'mean_' + task].item() > 0:
-        #                             mean_val = df_mean_var.loc[
-        #                                 df_mean_var['resource'] == resource, 'mean_' + task].item()
-        #                             var_val = df_mean_var.loc[
-        #                                 df_mean_var['resource'] == resource, 'var_' + task].item()
-        #
-        #             curr_df = dict_ranking_resource[task]
-        #             res_rank = -1
-        #             if not curr_df is None:
-        #                 if not (curr_df == None).all()[0]:
-        #                     if curr_df.loc[curr_df['resource'] == resource, 'Ranking'].shape[0] > 0:
-        #                         res_rank = curr_df.loc[curr_df['resource'] == resource, 'Ranking'].item()
-        #
-        #             curr_df = dict_ranking_tasks[resource]
-        #             task_rank = -1
-        #             if not curr_df is None:
-        #                 if not (curr_df == None).all()[0]:
-        #                     if curr_df.loc[curr_df['task_name'] == task, 'Ranking'].shape[0]:
-        #                         task_rank = curr_df.loc[curr_df['task_name'] == task, 'Ranking'].item()
-        #
-        #             if os.path.exists(path_freq_transition):
-        #                 df_freq_transition = pkl.load(open(path_freq_transition, 'rb'))
-        #                 prob = self.get_task_out_prob(df_freq_transition, task)
-        #                 if not prob >= 0:
-        #                     prob = -1
-        #             else:
-        #                 prob = -1
-        #
-        #             print(resource, task, mean_val, var_val, res_rank, task_rank, prob)
-        #
-        # print('****************End assignment*************************')
->>>>>>> origin/main
+
+        unassigned_tasks_ = [task.task_type for task in unassigned_tasks]
+
+        dict_ranking_tasks = {}
+        for resource in available_resources:
+            dict_ranking_tasks[resource] = self.give_resource_ranking(df_mean_var, resource, set(unassigned_tasks_))
+
+        dict_ranking_resource = {}
+
+        for task in set(unassigned_tasks_):
+            dict_ranking_resource[task] = self.give_task_ranking(df_mean_var, available_resources, task)
+
+        # print(dict_ranking_resource)
+        print('****************Start assignment*************************')
+        for task in set(unassigned_tasks_):
+            for resource in available_resources:
+                if resource in resource_pool[task]:
+
+                    mean_val = -1
+                    var_val = -1
+                    if df_mean_var.shape[0] > 0:
+                        if 'mean_' + task in df_mean_var.columns:
+                            if df_mean_var.loc[df_mean_var['resource'] == resource, 'mean_' + task].shape[
+                                0] > 0:
+                                if df_mean_var.loc[
+                                    df_mean_var['resource'] == resource, 'mean_' + task].item() > 0:
+                                    mean_val = df_mean_var.loc[
+                                        df_mean_var['resource'] == resource, 'mean_' + task].item()
+                                    var_val = df_mean_var.loc[
+                                        df_mean_var['resource'] == resource, 'var_' + task].item()
+
+                    curr_df = dict_ranking_resource[task]
+                    res_rank = -1
+                    if not curr_df is None:
+                        if not (curr_df == None).all()[0]:
+                            if curr_df.loc[curr_df['resource'] == resource, 'Ranking'].shape[0] > 0:
+                                res_rank = curr_df.loc[curr_df['resource'] == resource, 'Ranking'].item()
+
+                    curr_df = dict_ranking_tasks[resource]
+                    task_rank = -1
+                    if not curr_df is None:
+                        if not (curr_df == None).all()[0]:
+                            if curr_df.loc[curr_df['task_name'] == task, 'Ranking'].shape[0]:
+                                task_rank = curr_df.loc[curr_df['task_name'] == task, 'Ranking'].item()
+
+                    if os.path.exists(path_freq_transition):
+                        df_freq_transition = pkl.load(open(path_freq_transition, 'rb'))
+                        prob = self.get_task_out_prob(df_freq_transition, task)
+                        if not prob >= 0:
+                            prob = -1
+                    else:
+                        prob = -1
+
+                    print(resource, task, mean_val, var_val, res_rank, task_rank, prob)
+
+        print('****************End assignment*************************')
+
 
 
 
