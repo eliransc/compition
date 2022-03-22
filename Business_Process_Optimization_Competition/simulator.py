@@ -5,7 +5,7 @@ import pickle5 as pickle
 from abc import ABC, abstractmethod
 
 
-RUNNING_TIME = 24*365
+RUNNING_TIME = 24*1
 
 
 class Event:
@@ -318,7 +318,7 @@ class Simulator:
     def working_nr_resources(self):
         return len(self.available_resources) + len(self.busy_resources) + len(self.reserved_resources)
 
-    def run(self):
+    def run(self, a1,a2,a3,a4,a5):
         # repeat until the end of the simulation time:
         while self.now <= RUNNING_TIME:
             # get the first event e from the events
@@ -419,7 +419,7 @@ class Simulator:
             elif event.event_type == EventType.PLAN_TASKS:
                 # there only is an assignment if there are free resources and tasks
                 if len(self.unassigned_tasks) > 0 and len(self.available_resources) > 0:
-                    assignments = self.planner.plan(self.available_resources.copy(), list(self.unassigned_tasks.values()), self.problem_resource_pool)
+                    assignments = self.planner.plan(self.available_resources.copy(), list(self.unassigned_tasks.values()), self.problem_resource_pool, a1,a2,a3,a4,a5)
                     # for each newly assigned task:
                     moment = self.now
                     for (task, resource) in assignments:
